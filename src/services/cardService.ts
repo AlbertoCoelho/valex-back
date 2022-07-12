@@ -106,4 +106,5 @@ export const activateCard = async (
 
     const encryptedPassword = existingCard.securityCode;
     await cardRepository.update(id, {password: encryptedPassword});
-  }
+}
+
