@@ -7,7 +7,6 @@ export const createCard = async (req: Request, res: Response) => {
   //API_KEY será uma string só e não um array de strings.
   //Tenho que fazer dessa forma(o acesso a propriedade do objeto headers) porque req.headers.x-api-key o javascript vai achar que estou tentando fazer alguma operação de subtração por causa do menos.
   const API_KEY = req.headers["x-api-key"] as string;
-
   if(!API_KEY){
     return res.sendStatus(401);
   }
