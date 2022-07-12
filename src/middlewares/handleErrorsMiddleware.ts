@@ -20,8 +20,7 @@ export function badRequest() {
 
 export default function handleErrorsMiddleware(err , req: Request, res: Response, next: NextFunction) {
   if (err.type) {
-    res.sendStatus(serviceErrorToStatusCode[err.type]);
+    return res.sendStatus(serviceErrorToStatusCode[err.type]);
   }
-
   res.sendStatus(500);
 }

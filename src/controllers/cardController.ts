@@ -15,3 +15,15 @@ export const createCard = async (req: Request, res: Response) => {
   await service.createCard(employeeId, cardType, API_KEY);
   res.sendStatus(201);
 }
+
+export const activateCard = async (req: Request, res: Response) => {
+  //O id chega como string pelo req.params, precisamos transformar em Number.
+  const { id } = req.params;
+  const { CVC, password } = req.body;
+
+  const idNumber = Number(id);
+
+  await service.activateCard(idNumber, CVC, password);
+
+  res.sendStatus(200);
+}
